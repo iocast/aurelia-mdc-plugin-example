@@ -12,7 +12,8 @@
         "displayName": "Web",
         "index": "index.html",
         "baseDir": ".",
-        "output": "scripts"
+        "output": "dist/scripts",
+        "baseUrl": "scripts"
       }
     ],
     "options": {
@@ -39,7 +40,8 @@
             "path": "node_modules/aurelia-cli/lib/resources/scripts/configure-bluebird.js",
             "env": "dev"
           },
-          "node_modules/requirejs/require.js"
+          "node_modules/requirejs/require.js",
+          "node_modules/babel-polyfill/dist/polyfill.min.js"
         ],
         "dependencies": [
           "aurelia-binding",
@@ -90,8 +92,11 @@
           },
           {
             "name": "material-design-icons",
-            "path": "../node_modules/material-design-icons/iconfont",
-            "resources": ["material-icons.css"]
+            "path": "../node_modules/material-design-icons",
+            "main": "index.js",
+            "resources": [
+              "iconfont/material-icons.css"
+            ]
           },
           {
             "name": "@iocast/aurelia-mdc-plugin",
@@ -102,6 +107,11 @@
         ]
       }
     ],
+    "copyFiles": {
+      "index.html": "dist",
+      "favicon.ico": "dist",
+      "node_modules/material-design-icons/iconfont/*.{ttf,woff,woff2,eof,svg}": "dist/"
+    },
     "loader": {
       "type": "require",
       "configTarget": "vendor-bundle.js",
@@ -121,9 +131,9 @@
   "platform": {
     "id": "web",
     "displayName": "Web",
-    "index": "index.html",
-    "baseDir": ".",
-    "output": "scripts"
+    "index": "dist/index.html",
+    "baseDir": "./dist",
+    "output": "dist/scripts"
   },
   "transpiler": {
     "id": "babel",
