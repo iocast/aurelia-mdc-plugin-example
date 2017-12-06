@@ -121,7 +121,8 @@
           "name": "text",
           "extensions": [
             ".html",
-            ".css"
+            ".css",
+            ".json"
           ],
           "stub": true
         }

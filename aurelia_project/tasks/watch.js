@@ -72,7 +72,7 @@ let refresh = debounce(() => {
 
   // determine which tasks need to be executed
   // based on the files that have changed
-  for (let watcher of watches) {    
+  for (let watcher of watches) {
     if (Array.isArray(watcher.source)) {
       for(let source of watcher.source) {
         if (paths.find(path => minimatch(path, source))) {

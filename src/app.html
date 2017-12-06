@@ -3,13 +3,33 @@
   <require from="material-design-icons/iconfont/material-icons.css"></require>
   <require from="material-components-web/material-components-web.css"></require>
 
-  <h1>${message}</h1>
+  <main class="mdc-typography">
 
+    <section>
+      <mdc-chip remove.call="removeMe()" raised="true">
+        <div class="mdc-chip-icon">A</div>
+        <span>This is my chip</span>
+      </mdc-chip>
 
-  <mdc-chip remove.call="removeMe()" raised="true">
-    <div class="mdc-chip-icon">A</div>
-    <span>This is my chip</span>
-  </mdc-chip>
+    </section>
 
+    <section>
+
+      <mdc-autocomplete lookup.call="onChangeLookupEvent(newValue, oldValue)" select.call="onSelectionEvent(item)" items.bind="filteredList">
+        <input type="text" class="mdc-text-field__input" value.bind="selectedCountry.name">
+        <label class="mdc-text-field__label">Select a country</label>
+
+        <template replace-part="item-template">
+          <span class="mdc-list-item__text">
+            ${item.name}
+            <span class="mdc-list-item__text__secondary">${item.code}</span>
+          </span>
+        </template>
+
+      </mdc-autocomplete>
+
+    </section>
+
+  </main>
 
 </template>
