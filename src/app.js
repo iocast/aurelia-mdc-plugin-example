@@ -7,6 +7,7 @@ Object.freeze(countries);
 export class App {
 
   @bindable({defaultBindingMode: bindingMode.oneWay}) filteredList;
+  locale = 'de';
 
   constructor() {
     this.selectedCountry = {

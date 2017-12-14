@@ -1,5 +1,13 @@
 import environment from './environment';
 
+/****************
+ * Polyfills
+ ****************/
+import 'intl';
+if(!('formatToParts' in Intl.DateTimeFormat.prototype)) {
+  Intl = IntlPolyfill;
+}
+
 export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()

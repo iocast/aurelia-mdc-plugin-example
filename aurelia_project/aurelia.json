@@ -6,32 +6,30 @@
     "displayName": "Aurelia-CLI"
   },
   "build": {
-    "targets": [
-      {
-        "id": "web",
-        "displayName": "Web",
-        "index": "index.html",
-        "baseDir": ".",
-        "output": "dist/scripts",
-        "baseUrl": "scripts"
-      }
-    ],
+    "targets": [{
+      "id": "web",
+      "displayName": "Web",
+      "index": "index.html",
+      "baseDir": ".",
+      "output": "dist/scripts",
+      "baseUrl": "scripts"
+    }],
     "options": {
       "minify": "stage & prod",
       "sourcemaps": "dev & stage"
     },
-    "bundles": [
-      {
+    "bundles": [{
         "name": "app-bundle.js",
         "source": [
           "[**/*.js]",
-          "**/*.{css,html}"
+          "**/*.{css,html,json}"
         ]
       },
       {
         "name": "vendor-bundle.js",
         "prepend": [
           "node_modules/bluebird/js/browser/bluebird.core.js",
+          "node_modules/intl/dist/Intl.complete.js",
           {
             "path": "node_modules/aurelia-cli/lib/resources/scripts/configure-bluebird-no-long-stacktraces.js",
             "env": "stage & prod"
@@ -83,6 +81,11 @@
           },
           "text",
           {
+            "name": "intl",
+            "path": "../node_modules/intl/dist",
+            "main": "Intl.complete"
+          },
+          {
             "name": "material-components-web",
             "path": "../node_modules/material-components-web/dist",
             "main": "material-components-web",
@@ -116,17 +119,15 @@
       "type": "require",
       "configTarget": "vendor-bundle.js",
       "includeBundleMetadataInConfig": "auto",
-      "plugins": [
-        {
-          "name": "text",
-          "extensions": [
-            ".html",
-            ".css",
-            ".json"
-          ],
-          "stub": true
-        }
-      ]
+      "plugins": [{
+        "name": "text",
+        "extensions": [
+          ".html",
+          ".css",
+          ".json"
+        ],
+        "stub": true
+      }]
     }
   },
   "platform": {
