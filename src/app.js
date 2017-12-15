@@ -1,31 +1,31 @@
-import { bindable, bindingMode } from 'aurelia-framework';
+import { inject, bindable, bindingMode } from 'aurelia-framework';
+import { Router } from 'aurelia-router';
 
-import countriesJSON from 'text!./countries.json';
-const countries = JSON.parse(countriesJSON);
-Object.freeze(countries);
+import AppRouterConfig from './router-config';
 
+import { drawer } from 'material-components-web';
+
+
+@inject(Router, AppRouterConfig)
 export class App {
 
-  @bindable({defaultBindingMode: bindingMode.oneWay}) filteredList;
-  locale = 'de';
-
-  constructor() {
-    this.selectedCountry = {
-      id: "",
-      description: ""
+    constructor(router, appRouterConfig) {
+        // The application's configuration, including the route definitions that we've declared in router-config.js
+        this.appRouterConfig = appRouterConfig;
     }
-  }
 
-  async onChangeLookupEvent(newValue, oldValue) {
-    this.filteredList = await new Promise((resolve, reject) => {
-      resolve(countries.filter(ele => {
-        return (ele.code.toLowerCase().includes(newValue.toLowerCase()) || ele.name.toLowerCase().includes(newValue.toLowerCase()));
-      }));
-    });
-  }
+    activate(params, routeConfig, navigationInstruction) {
+        // Here, we run the configuration when the app loads.
+        this.appRouterConfig.configure();
+    }
 
-  async onSelectionEvent(item) {
-    this.selectedCountry = item;
-  }
+
+    attached() {
+        this.mdcDrawer = new drawer.MDCTemporaryDrawer(this.drawer);
+    }
+
+    toggleDrawer() {
+        this.mdcDrawer.open = !this.mdcDrawer.open;
+    }
 
 }

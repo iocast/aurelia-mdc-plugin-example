@@ -1,0 +1,35 @@
+<template>
+
+    <section>
+        <h1>mdc-autocomplete</h1>
+
+        <mdc-autocomplete lookup.call="onChangeLookupEvent(newValue, oldValue)" select.call="onSelectionEvent(item)" items.bind="filteredList">
+            <input type="text" class="mdc-text-field__input" value.bind="selectedCountry.name">
+            <label class="mdc-text-field__label">Select a country</label>
+
+            <template replace-part="item-template">
+                <span class="mdc-list-item__text">${item.name}
+                    <span class="mdc-list-item__text__secondary">${item.code}</span>
+                </span>
+            </template>
+
+        </mdc-autocomplete>
+
+
+        <au-code language="html">
+<mdc-autocomplete lookup.call="onChangeLookupEvent(newValue, oldValue)" select.call="onSelectionEvent(item)" items.bind="filteredList">
+    <input type="text" class="mdc-text-field__input" value.bind="selectedCountry.name">
+    <label class="mdc-text-field__label">Select a country</label>
+
+    <template replace-part="item-template">
+        <span class="mdc-list-item__text">${item.name}
+            <span class="mdc-list-item__text__secondary">${item.code}</span>
+        </span>
+    </template>
+
+</mdc-autocomplete>
+        </au-code>
+
+    </section>
+
+</template>

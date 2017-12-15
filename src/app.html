@@ -3,42 +3,44 @@
     <require from="material-design-icons/iconfont/material-icons.css"></require>
     <require from="material-components-web/material-components-web.css"></require>
 
-    <main class="mdc-typography">
+    <require from="./app.css"></require>
 
-        <section>
-            <mdc-chip remove.call="removeMe()" raised="true">
-                <div class="mdc-chip-icon">A</div>
-                <span>This is my chip</span>
-            </mdc-chip>
 
-        </section>
+    <div class="mdc-toolbar mdc-toolbar--fixed">
+        <div class="mdc-toolbar__row">
+            <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
+                <button class="material-icons mdc-toolbar__menu-icon" click.delegate="toggleDrawer()">menu</button>
+                <span class="mdc-toolbar__title catalog-title">aurelia-mdc-plugin</span>
+            </section>
+        </div>
+    </div>
 
-        <section>
 
-            <mdc-autocomplete lookup.call="onChangeLookupEvent(newValue, oldValue)" select.call="onSelectionEvent(item)" items.bind="filteredList">
-                <input type="text" class="mdc-text-field__input" value.bind="selectedCountry.name">
-                <label class="mdc-text-field__label">Select a country</label>
+    <aside ref="drawer" class="mdc-temporary-drawer" style="">
+        <nav class="mdc-temporary-drawer__drawer">
+            <header class="mdc-temporary-drawer__header">
+                <div class="mdc-temporary-drawer__header-content mdc-theme--primary-bg mdc-theme--text-primary-on-primary">Components</div>
+            </header>
+            <nav class="mdc-temporary-drawer__content mdc-list-group">
+                <div class="mdc-list">
+                    <!-- mdc-temporary-drawer--selected -->
+                    <a class="mdc-list-item" href="#/components" data-mdc-tabindex-handled="true" tabindex="-1">Overview</a>
+                    <hr class="mdc-list-divider">
+                    <a class="mdc-list-item" href="#/components/checkbox" data-mdc-tabindex-handled="true" tabindex="-1">Checkbox</a>
+                    <a class="mdc-list-item" href="#/components/chip" data-mdc-tabindex-handled="true" tabindex="-1">Chip</a>
+                    <hr class="mdc-list-divider">
+                    <a class="mdc-list-item" href="#/components/autocomplete" data-mdc-tabindex-handled="true" tabindex="-1">Autocomplete</a>
+                    <a class="mdc-list-item" href="#/components/datepicker" data-mdc-tabindex-handled="true" tabindex="-1">Datepicker</a>
+                    <a class="mdc-list-item" href="#/components/timepicker" data-mdc-tabindex-handled="true" tabindex="-1">Timepicker</a>
+                </div>
+            </nav>
+        </nav>
+    </aside>
 
-                <template replace-part="item-template">
-                    <span class="mdc-list-item__text">
-            ${item.name}
-            <span class="mdc-list-item__text__secondary">${item.code}</span>
-                    </span>
-                </template>
 
-            </mdc-autocomplete>
 
-        </section>
-
-        <section>
-            <mdc-datepicker locale.bind="locale" start-week-on="monday" value.bind="today">
-                <label class="mdc-text-field__label">Date</label>
-            </mdc-datepicker>
-            <mdc-timepicker locale.bind="locale" value.bind="today">
-                <label class="mdc-text-field__label">Time</label>
-            </mdc-timepicker>
-        </section>
-
+    <main class="mdc-toolbar-fixed-adjust">
+        <router-view></router-view>
     </main>
 
 </template>
