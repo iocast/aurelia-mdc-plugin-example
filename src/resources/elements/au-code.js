@@ -23,6 +23,7 @@ export class AuCode {
             this.element.removeChild(this.element.firstChild);
         }
         let pre = document.createElement('pre');
+        pre.style.overflow = 'auto';
         this.element.appendChild(pre);
         pre.innerHTML = Prism.highlight(this.html, Prism.languages[this.language]);
     }
