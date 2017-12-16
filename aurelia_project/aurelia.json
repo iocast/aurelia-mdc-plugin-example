@@ -11,7 +11,7 @@
             "displayName": "Web",
             "index": "index.html",
             "baseDir": ".",
-            "output": "dist/scripts",
+            "output": "docs/scripts",
             "baseUrl": "scripts"
         }],
         "options": {
@@ -117,9 +117,9 @@
             }
         ],
         "copyFiles": {
-            "index.html": "dist",
-            "favicon.ico": "dist",
-            "node_modules/material-design-icons/iconfont/*.{ttf,woff,woff2,eof,svg}": "dist/"
+            "index.html": "docs",
+            "favicon.ico": "docs",
+            "node_modules/material-design-icons/iconfont/*.{ttf,woff,woff2,eof,svg}": "docs/"
         },
         "loader": {
             "type": "require",
@@ -139,9 +139,9 @@
     "platform": {
         "id": "web",
         "displayName": "Web",
-        "index": "dist/index.html",
-        "baseDir": "./dist",
-        "output": "dist/scripts"
+        "index": "docs/index.html",
+        "baseDir": "./docs",
+        "output": "docs/scripts"
     },
     "transpiler": {
         "id": "babel",
