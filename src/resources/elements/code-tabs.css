@@ -1,0 +1,7 @@
+.code-tab-panel {
+    display: none;
+}
+
+.code-tab-panel.is-active {
+    display: block;
+}

@@ -35,5 +35,12 @@ exports.routes = [
     moduleId: PLATFORM.moduleName('./timepicker'),
     nav: false,
     title: 'mdc-timepicker'
+  },
+  {
+    route: 'tab-bar',
+    name: 'tab-bar',
+    moduleId: PLATFORM.moduleName('./tab-bar'),
+    nav: false,
+    title: 'mdc-tab-bar'
   }
 ];

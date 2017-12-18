@@ -3,13 +3,11 @@ import { Router } from 'aurelia-router';
 
 import AppRouterConfig from './router-config';
 
-import { drawer } from 'material-components-web';
-
-
 @inject(Router, AppRouterConfig)
 export class App {
 
     constructor(router, appRouterConfig) {
+        this.router = router;
         // The application's configuration, including the route definitions that we've declared in router-config.js
         this.appRouterConfig = appRouterConfig;
     }
@@ -19,13 +17,14 @@ export class App {
         this.appRouterConfig.configure();
     }
 
-
-    attached() {
-        this.mdcDrawer = new drawer.MDCTemporaryDrawer(this.drawer);
+    toggleDrawer() {
+        this.drawer.MDCTemporaryDrawer.open = !this.drawer.MDCTemporaryDrawer.open;
     }
 
-    toggleDrawer() {
-        this.mdcDrawer.open = !this.mdcDrawer.open;
+    navigateTo(url) {
+        this.drawer.MDCTemporaryDrawer.open = false;
+        this.drawer.MDCTemporaryDrawer.getDefaultFoundation().adapter_.notifyClose();
+        this.router.navigate(url, { force: true, replace: true, trigger: true });
     }
 
 }

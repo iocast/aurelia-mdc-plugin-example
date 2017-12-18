@@ -16,15 +16,15 @@ export class Autocomplete {
     }
 
     async onChangeLookupEvent(newValue, oldValue) {
-      this.filteredList = await new Promise((resolve, reject) => {
-        resolve(countries.filter(ele => {
-          return (ele.code.toLowerCase().includes(newValue.toLowerCase()) || ele.name.toLowerCase().includes(newValue.toLowerCase()));
-        }));
-      });
+        this.filteredList = await new Promise((resolve, reject) => {
+            resolve(countries.filter(ele => {
+                return (ele.code.toLowerCase().includes(newValue.toLowerCase()) || ele.name.toLowerCase().includes(newValue.toLowerCase()));
+            }));
+        });
     }
 
     async onSelectionEvent(item) {
-      this.selectedCountry = item;
+        this.selectedCountry = item;
     }
 
 }

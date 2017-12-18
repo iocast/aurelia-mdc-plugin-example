@@ -4,6 +4,7 @@
         <h1>mdc-autocomplete</h1>
 
         <mdc-autocomplete lookup.call="onChangeLookupEvent(newValue, oldValue)" select.call="onSelectionEvent(item)" items.bind="filteredList">
+
             <input type="text" class="mdc-text-field__input" value.bind="selectedCountry.name">
             <label class="mdc-text-field__label">Select a country</label>
 
@@ -15,20 +16,63 @@
 
         </mdc-autocomplete>
 
+    </section>
 
-        <au-code language="html">
-<mdc-autocomplete lookup.call="onChangeLookupEvent(newValue, oldValue)" select.call="onSelectionEvent(item)" items.bind="filteredList">
-    <input type="text" class="mdc-text-field__input" value.bind="selectedCountry.name">
-    <label class="mdc-text-field__label">Select a country</label>
 
-    <template replace-part="item-template">
-        <span class="mdc-list-item__text">${item.name}
-            <span class="mdc-list-item__text__secondary">${item.code}</span>
-        </span>
-    </template>
+    <section>
 
-</mdc-autocomplete>
-        </au-code>
+        <code-tabs>
+            <template replace-part="tab-view-template">
+                <au-code language="html">
+                    <mdc-autocomplete lookup.call="onChangeLookupEvent(newValue, oldValue)" select.call="onSelectionEvent(item)" items.bind="filteredList">
+
+                        <input type="text" class="mdc-text-field__input" value.bind="selectedCountry.name">
+                        <label class="mdc-text-field__label">Select a country</label>
+
+                        <template replace-part="item-template">
+                            <span class="mdc-list-item__text">${item.name}
+                                <span class="mdc-list-item__text__secondary">${item.code}</span>
+                            </span>
+                        </template>
+
+                    </mdc-autocomplete>
+                </au-code>
+            </template>
+            <template replace-part="tab-model-template">
+                <au-code language="javascript">
+                    import { bindable, bindingMode } from 'aurelia-framework';
+
+                    import countriesJSON from 'text!../countries.json';
+                    const countries = JSON.parse(countriesJSON);
+                    Object.freeze(countries);
+
+
+                    export class Autocomplete {
+                        @bindable({ defaultBindingMode: bindingMode.oneWay }) filteredList;
+
+                        constructor() {
+                            this.selectedCountry = {
+                                id: "",
+                                description: ""
+                            }
+                        }
+
+                        async onChangeLookupEvent(newValue, oldValue) {
+                            this.filteredList = await new Promise((resolve, reject) => {
+                                resolve(countries.filter(ele => {
+                                    return (ele.code.toLowerCase().includes(newValue.toLowerCase()) || ele.name.toLowerCase().includes(newValue.toLowerCase()));
+                                }));
+                            });
+                        }
+
+                        async onSelectionEvent(item) {
+                            this.selectedCountry = item;
+                        }
+
+                    }
+                </au-code>
+            </template>
+        </code-tabs>
 
     </section>
 

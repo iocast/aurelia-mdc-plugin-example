@@ -1,13 +1,29 @@
 <template>
-    
+
     <section>
         <h1>mdc-chip</h1>
-
 
         <mdc-chip remove.call="removeMe()" raised="true">
             <div class="mdc-chip-icon">A</div>
             <span>This is my chip</span>
         </mdc-chip>
+
+    </section>
+
+
+
+    <section>
+
+        <code-tabs>
+            <template replace-part="tab-view-template">
+                <au-code language="html">
+                    <mdc-chip remove.call="removeMe()" raised="true">
+                        <div class="mdc-chip-icon">A</div>
+                        <span>This is my chip</span>
+                    </mdc-chip>
+                </au-code>
+            </template>
+        </code-tabs>
 
     </section>
 

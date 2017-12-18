@@ -1,0 +1,99 @@
+<template>
+
+    <require from="./tab-bar.css"></require>
+
+    <div>
+        <nav ref="demoTabBar" class="mdc-tab-bar" role="tablist">
+            <a role="tab" aria-controls="tab-1" class="mdc-tab mdc-tab--active">Tab 1</a>
+            <a role="tab" aria-controls="tab-2" class="mdc-tab">Tab 2</a>
+            <span class="mdc-tab-bar__indicator"></span>
+        </nav>
+    </div>
+
+    <section>
+        <div ref="demoPanels" class="tab-panels">
+            <div class="tab-panel is-active" id="tab-1" role="tabpanel" aria-hidden="false">
+                <p>content of tab 1</p>
+            </div>
+            <div class="tab-panel" id="tab-2" role="tabpanel" aria-hidden="true">
+                <p>content of tab 2</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+
+        <code-tabs>
+            <template replace-part="tab-view-template">
+                <au-code language="html">
+                    <require from="./tab-bar.css"></require>
+                    <div>
+                        <nav ref="myTabBar" class="mdc-tab-bar" role="tablist">
+                            <a role="tab" aria-controls="tab-1" class="mdc-tab mdc-tab--active">Tab 1</a>
+                            <a role="tab" aria-controls="tab-2" class="mdc-tab">Tab 2</a>
+                            <span class="mdc-tab-bar__indicator"></span>
+                        </nav>
+                    </div>
+
+                    <section>
+                        <div ref="panels" class="tab-panels">
+                            <div class="tab-panel is-active" id="tab-1" role="tabpanel" aria-hidden="false">
+                                <p>content of tab 1</p>
+                            </div>
+                            <div class="tab-panel" id="tab-2" role="tabpanel" aria-hidden="true">
+                                <p>content of tab 2</p>
+                            </div>
+                        </div>
+                    </section>
+                </au-code>
+            </template>
+            <template replace-part="tab-model-template">
+                <au-code language="javascript">
+                    import { tabs } from 'material-components-web'
+
+                    export class TabBar {
+
+                        attached() {
+                            this.myTabBar.MDCTabBar.tabs.forEach((tab) => {
+                                tab.preventDefaultOnClick = true;
+                            });
+
+                            this.myTabBar.MDCTabBar.listen('MDCTabBar:change', ({ detail: tabs }) => {
+                                this.updateTab(tabs.activeTabIndex);
+                            });
+                        }
+
+                        updateTab(idx) {
+                            let activePanel = this.panels.querySelector(".tab-panel.is-active");
+                            if (activePanel) {
+                                activePanel.classList.remove("is-active");
+                            }
+                            var newActivePanel = this.panels.querySelector(
+                                ".tab-panel:nth-child(" + (idx + 1) + ")"
+                            );
+                            if (newActivePanel) {
+                                newActivePanel.classList.add("is-active");
+                            }
+                        }
+                    }
+                </au-code>
+            </template>
+            <template replace-part="tab-style-template">
+                <au-code language="css">
+                    .tab-panel {
+                        display: none;
+                    }
+
+                    .tab-panel.is-active {
+                        display: block;
+                    }
+                </au-code>
+            </template>
+        </code-tabs>
+
+    </section>
+
+
+
+</template>
