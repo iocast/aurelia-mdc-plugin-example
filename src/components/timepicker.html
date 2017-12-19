@@ -6,4 +6,29 @@
             <label class="mdc-text-field__label">Time</label>
         </mdc-timepicker>
     </section>
+
+
+    <section>
+
+        <code-tabs>
+            <template replace-part="tab-view-template">
+                <au-code language="html">
+                    <mdc-timepicker locale.bind="locale" value.bind="today">
+                        <label class="mdc-text-field__label">Time</label>
+                    </mdc-timepicker>
+                </au-code>
+            </template>
+            <template replace-part="tab-model-template">
+                <au-code language="javascript">
+                    export class Timepicker {
+                        locale = 'de';
+                        today = new Date();
+                    }
+                </au-code>
+            </template>
+        </code-tabs>
+
+    </section>
+
+
 </template>

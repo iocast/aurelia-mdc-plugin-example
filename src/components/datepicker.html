@@ -8,4 +8,27 @@
         </mdc-datepicker>
     </section>
 
+
+    <section>
+
+        <code-tabs>
+            <template replace-part="tab-view-template">
+                <au-code language="html">
+                    <mdc-datepicker locale.bind="locale" start-week-on="monday" value.bind="today">
+                        <label class="mdc-text-field__label">Date</label>
+                    </mdc-datepicker>
+                </au-code>
+            </template>
+            <template replace-part="tab-model-template">
+                <au-code language="javascript">
+                    export class Datepicker {
+                        locale = 'de';
+                        today = new Date();
+                    }
+                </au-code>
+            </template>
+        </code-tabs>
+
+    </section>
+
 </template>
