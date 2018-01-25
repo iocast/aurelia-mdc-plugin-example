@@ -12,16 +12,27 @@
                 <button class="material-icons mdc-toolbar__menu-icon" click.delegate="toggleDrawer()">menu</button>
                 <span class="mdc-toolbar__title catalog-title">aurelia-mdc-plugin</span>
             </section>
+            <section class="mdc-toolbar__section mdc-toolbar__section--align-end" role="toolbar">
+                <a class="material-icons" aria-label="Change language" alt="Languages" click.delegate="toggleLanguageMenu()">language</a>
+
+                <div class="mdc-simple-menu" tabindex="-1" ref="languageMenu">
+                    <ul class="mdc-simple-menu__items mdc-list" role="menu" aria-hidden="true">
+                        <li class="mdc-list-item mdc-typography--body2" role="menuitem" tabindex="0" repeat.for="language of languages" value.bind="language.value" click.delegate="switchLanguage(language.value)">${language.text}</li>
+                    </ul>
+                </div>
+            </section>
         </div>
     </div>
 
 
-    <aside ref="drawer" class="mdc-temporary-drawer" style="">
-        <nav class="mdc-temporary-drawer__drawer">
-            <header class="mdc-temporary-drawer__header">
-                <div class="mdc-temporary-drawer__header-content mdc-theme--primary-bg mdc-theme--text-primary-on-primary">Components</div>
+
+
+    <aside ref="drawer" class="mdc-drawer--temporary" style="">
+        <nav class="mdc-drawer__drawer">
+            <header class="mdc-drawer__header">
+                <div class="mdc-drawer__header-content mdc-theme--primary-bg mdc-theme--text-primary-on-primary">Components</div>
             </header>
-            <nav class="mdc-temporary-drawer__content mdc-list-group">
+            <nav class="mdc-drawer__content mdc-list-group">
                 <div class="mdc-list">
                     <!-- mdc-temporary-drawer--selected -->
                     <a class="mdc-list-item" href="#" click.trigger="navigateTo('/components')" data-mdc-tabindex-handled="true" tabindex="-1">Overview</a>

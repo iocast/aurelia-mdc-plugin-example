@@ -86,6 +86,27 @@
                         "main": "Intl.complete"
                     },
                     {
+                        "name": "i18next",
+                        "path": "../node_modules/i18next/dist/umd",
+                        "main": "i18next"
+                    },
+                    {
+                        "name": "aurelia-i18n",
+                        "path": "../node_modules/aurelia-i18n/dist/amd",
+                        "main": "aurelia-i18n"
+                    },
+                    {
+                        "name": "i18next-xhr-backend",
+                        "path": "../node_modules/i18next-xhr-backend/dist/umd",
+                        "main": "i18nextXHRBackend"
+                    },
+                    {
+                        "name": "prismjs",
+                        "path": "../node_modules/prismjs",
+                        "main": "prism",
+                        "resources": ["**/*.css"]
+                    },
+                    {
                         "name": "material-components-web",
                         "path": "../node_modules/material-components-web/dist",
                         "main": "material-components-web",
@@ -106,12 +127,6 @@
                         "path": "../../aurelia-mdc-plugin/dist/amd",
                         "main": "index",
                         "resources": ["**/*.{html,css}"]
-                    },
-                    {
-                        "name": "prismjs",
-                        "path": "../node_modules/prismjs",
-                        "main": "prism",
-                        "resources": ["**/*.css"]
                     }
                 ]
             }
@@ -159,6 +174,12 @@
         "displayName": "None",
         "fileExtension": ".html",
         "source": "src/**/*.html"
+    },
+    "localesProcessor": {
+        "id": "none",
+        "displayName": "None",
+        "fileExtension": ".json",
+        "source": "src/locales/**/*.json"
     },
     "cssProcessor": {
         "id": "none",
