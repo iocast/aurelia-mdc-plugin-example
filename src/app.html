@@ -15,8 +15,8 @@
             <section class="mdc-toolbar__section mdc-toolbar__section--align-end" role="toolbar">
                 <a class="material-icons" aria-label="Change language" alt="Languages" click.delegate="toggleLanguageMenu()">language</a>
 
-                <div class="mdc-simple-menu" tabindex="-1" ref="languageMenu">
-                    <ul class="mdc-simple-menu__items mdc-list" role="menu" aria-hidden="true">
+                <div class="mdc-menu" tabindex="-1" ref="languageMenu">
+                    <ul class="mdc-menu__items mdc-list" role="menu" aria-hidden="true">
                         <li class="mdc-list-item mdc-typography--body2" role="menuitem" tabindex="0" repeat.for="language of languages" value.bind="language.value" click.delegate="switchLanguage(language.value)">${language.text}</li>
                     </ul>
                 </div>

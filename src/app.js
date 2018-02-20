@@ -39,9 +39,9 @@ export class App {
     }
 
     attached() {
-        this.mdcMenu = new menu.MDCSimpleMenu(this.languageMenu);
+        this.mdcMenu = new menu.MDCMenu(this.languageMenu);
     }
-    
+
     switchLanguage(lang) {
       this.selectedLanguage = lang;
 
