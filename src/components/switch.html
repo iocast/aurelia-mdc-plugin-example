@@ -4,7 +4,7 @@
         <h1>mdc-switch</h1>
 
         <div class="mdc-switch">
-            <input type="checkbox" class="mdc-switch__native-control" role="switch" value="on" checked.bind="switched">
+            <input type="checkbox" class="mdc-switch__native-control" role="switch" checked.bind="switched">
             <div class="mdc-switch__background">
                 <div class="mdc-switch__knob"></div>
             </div>
@@ -21,7 +21,7 @@
             <template replace-part="tab-view-template">
                 <au-code language="html">
                     <div class="mdc-switch">
-                            <input type="checkbox" class="mdc-switch__native-control" role="switch" value="on" checked.bind="switched">
+                        <input type="checkbox" class="mdc-switch__native-control" role="switch" checked.bind="switched">
                         <div class="mdc-switch__background">
                             <div class="mdc-switch__knob"></div>
                         </div>
@@ -35,11 +35,11 @@
 
                     export class Switch {
                         @bindable switched = true;
-                    
+
                         toggleSwitch() {
                             this.switched = !this.switched;
                         }
-                    }  
+                    }
                 </au-code>
             </template>
         </code-tabs>
