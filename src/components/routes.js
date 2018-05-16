@@ -8,6 +8,14 @@ exports.routes = [
     nav: false,
     title: "overview"
   },
+  ,
+  {
+    route: 'switch',
+    name: 'switch',
+    moduleId: PLATFORM.moduleName('./switch'),
+    nav: false,
+    title: 'mdc-switch'
+  },
   {
     route: 'chip',
     name: 'chip',

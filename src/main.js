@@ -1,3 +1,4 @@
+import { PLATFORM } from 'aurelia-pal';
 import { I18N, TCustomAttribute } from 'aurelia-i18n';
 import Backend from 'i18next-xhr-backend';
 import environment from './environment';
@@ -13,18 +14,18 @@ if (!('formatToParts' in Intl.DateTimeFormat.prototype)) {
 export function configure(aurelia) {
     aurelia.use
         .standardConfiguration()
-        .feature('resources');
+        .feature(PLATFORM.moduleName('resources'));
 
     if (environment.debug) {
         aurelia.use.developmentLogging();
     }
 
     if (environment.testing) {
-        aurelia.use.plugin('aurelia-testing');
+        aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));
     }
 
     aurelia.use
-        .plugin('aurelia-i18n', (instance) => {
+        .plugin(PLATFORM.moduleName('aurelia-i18n'), (instance) => {
             let aliases = ['t', 'i18n'];
             // add aliases for 't' attribute
             TCustomAttribute.configureAliases(aliases);
@@ -45,7 +46,7 @@ export function configure(aurelia) {
             });
         });
 
-    aurelia.use.plugin('@iocast/aurelia-mdc-plugin');
+    aurelia.use.plugin(PLATFORM.moduleName('@iocast/aurelia-mdc-plugin'));
 
     aurelia.start().then(() => aurelia.setRoot());
 }
