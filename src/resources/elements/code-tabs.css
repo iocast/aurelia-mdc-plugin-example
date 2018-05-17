@@ -2,6 +2,6 @@
     display: none;
 }
 
-.code-tab-panel.is-active {
+.code-tab-panel.active {
     display: block;
 }

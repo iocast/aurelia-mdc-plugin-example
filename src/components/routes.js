@@ -17,6 +17,13 @@ exports.routes = [
     title: 'mdc-switch'
   },
   {
+    route: 'list',
+    name: 'list',
+    moduleId: PLATFORM.moduleName('./list'),
+    nav: false,
+    title: 'mdc-list'
+  },
+  {
     route: 'chip',
     name: 'chip',
     moduleId: PLATFORM.moduleName('./chip'),

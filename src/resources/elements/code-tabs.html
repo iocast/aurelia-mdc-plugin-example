@@ -4,16 +4,16 @@
 
     <div class="">
         <nav ref="codeTabBar" class="mdc-tab-bar" role="tablist">
-            <a role="tab" aria-controls="code-tab-view" class="mdc-tab mdc-tab--active">View</a>
-            <a role="tab" aria-controls="code-tab-model" class="mdc-tab">Model</a>
-            <a role="tab" aria-controls="code-tab-style" class="mdc-tab">CSS</a>
+            <a role="tab" aria-controls="code-tab-view" class="mdc-tab mdc-tab--active" href="#code-tab-view">View</a>
+            <a role="tab" aria-controls="code-tab-model" class="mdc-tab" href="#code-tab-model">Model</a>
+            <a role="tab" aria-controls="code-tab-style" class="mdc-tab"  href="#code-tab-style">CSS</a>
             <span class="mdc-tab-bar__indicator"></span>
         </nav>
     </div>
 
     <section>
         <div ref="codePanels" class="code-tab-panels">
-            <div class="code-tab-panel is-active" id="code-tab-view" role="tabpanel" aria-hidden="false">
+            <div class="code-tab-panel active" id="code-tab-view" role="tabpanel" aria-hidden="false">
                 <template replaceable part="tab-view-template"></template>
             </div>
             <div class="code-tab-panel" id="code-tab-model" role="tabpanel" aria-hidden="true">
