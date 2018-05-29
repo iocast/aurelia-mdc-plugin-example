@@ -11,7 +11,7 @@
     },
     "license": "MIT",
     "dependencies": {
-        "@iocast/aurelia-mdc-plugin": "^0.6.2",
+        "@iocast/aurelia-mdc-plugin": "^0.7.1",
         "aurelia-animator-css": "^1.0.2",
         "aurelia-bootstrapper": "^2.2.0",
         "aurelia-i18n": "^2.2.0",

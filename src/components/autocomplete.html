@@ -6,8 +6,9 @@
         <mdc-autocomplete lookup.call="onChangeLookupEvent(newValue, oldValue)" select.call="onSelectionEvent(item)" items.bind="filteredList">
 
             <input type="text" class="mdc-text-field__input" value.bind="selectedCountry.name">
-            <label class="mdc-text-field__label">Select a country</label>
-
+            <label class="mdc-floating-label">Select a country</label>
+            <div class="mdc-line-ripple"></div>
+            
             <template replace-part="item-template">
                 <span class="mdc-list-item__text">${item.name}
                     <span class="mdc-list-item__text__secondary">${item.code}</span>
@@ -27,7 +28,8 @@
                     <mdc-autocomplete lookup.call="onChangeLookupEvent(newValue, oldValue)" select.call="onSelectionEvent(item)" items.bind="filteredList">
 
                         <input type="text" class="mdc-text-field__input" value.bind="selectedCountry.name">
-                        <label class="mdc-text-field__label">Select a country</label>
+                        <label class="mdc-floating-label">Select a country</label>
+                        <div class="mdc-line-ripple"></div>
 
                         <template replace-part="item-template">
                             <span class="mdc-list-item__text">${item.name}

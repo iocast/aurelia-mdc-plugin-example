@@ -8,7 +8,13 @@ exports.routes = [
     nav: false,
     title: "overview"
   },
-  ,
+  {
+    route: 'text-field',
+    name: 'text-field',
+    moduleId: PLATFORM.moduleName('./text-field'),
+    nav: false,
+    title: 'mdc-text-field'
+  },
   {
     route: 'switch',
     name: 'switch',
