@@ -4,7 +4,8 @@
         <h1>mdc-datepicker</h1>
 
         <mdc-datepicker locale.bind="locale" start-week-on="monday" value.bind="today">
-            <label class="mdc-text-field__label">Date</label>
+            <label class="mdc-floating-label">Date</label>
+            <div class="mdc-line-ripple"></div>
         </mdc-datepicker>
     </section>
 
@@ -15,7 +16,8 @@
             <template replace-part="tab-view-template">
                 <au-code language="html">
                     <mdc-datepicker locale.bind="locale" start-week-on="monday" value.bind="today">
-                        <label class="mdc-text-field__label">Date</label>
+                        <label class="mdc-floating-label">Date</label>
+                        <div class="mdc-line-ripple"></div>
                     </mdc-datepicker>
                 </au-code>
             </template>

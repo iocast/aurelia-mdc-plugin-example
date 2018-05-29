@@ -3,7 +3,8 @@
         <h1>mdc-timepicker</h1>
 
         <mdc-timepicker locale.bind="locale" value.bind="today">
-            <label class="mdc-text-field__label">Time</label>
+            <label class="mdc-floating-label">Time</label>
+            <div class="mdc-line-ripple"></div>
         </mdc-timepicker>
     </section>
 
@@ -14,7 +15,8 @@
             <template replace-part="tab-view-template">
                 <au-code language="html">
                     <mdc-timepicker locale.bind="locale" value.bind="today">
-                        <label class="mdc-text-field__label">Time</label>
+                        <label class="mdc-floating-label">Time</label>
+                        <div class="mdc-line-ripple"></div>
                     </mdc-timepicker>
                 </au-code>
             </template>
