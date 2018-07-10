@@ -1,36 +1,102 @@
 <template>
 
-    <section>
-        <h1>mdc-chip</h1>
+  <section>
+    <h1>mdc-chip</h1>
 
 
-        <div class="mdc-chip-set">
+    <div class="mdc-chip-set">
+      <div class="mdc-chip">
+        <div class="mdc-chip__text">Chip content</div>
+      </div>
+      <div class="mdc-chip">
+        <div class="mdc-chip__text">Chip content</div>
+      </div>
+      <div class="mdc-chip">
+        <div class="mdc-chip__text">Chip content</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+
+    <code-tabs>
+      <template replace-part="tab-view-template">
+        <au-code language="html">
+          <div class="mdc-chip-set">
             <div class="mdc-chip">
-                <div class="mdc-chip__text">Chip content</div>
+              <div class="mdc-chip__text">Chip content</div>
             </div>
-            <div class="mdc-chip">
-                <div class="mdc-chip__text">Chip content</div>
+          </div>
+        </au-code>
+      </template>
+    </code-tabs>
+
+  </section>
+
+
+  <section>
+    <h1>mdc-chip choice</h1>
+
+    <div class="mdc-chip-set mdc-chip-set--choice" ref="choiceSet">
+      <div class="mdc-chip mdc-chip--selected" disable-mdc-auto-init>
+        <div class="mdc-chip__text">Banana</div>
+      </div>
+      <div class="mdc-chip" disable-mdc-auto-init>
+        <div class="mdc-chip__text">Apple</div>
+      </div>
+      <div class="mdc-chip" disable-mdc-auto-init>
+        <div class="mdc-chip__text">Kiwi</div>
+      </div>
+    </div>
+
+    <button class="mdc-button" click.delegate="printChipSetResult()">get selected</button>
+
+    <div>${selectedText}</div>
+  </section>
+
+
+
+  <section>
+
+    <code-tabs>
+      <template replace-part="tab-view-template">
+        <au-code language="html">
+          <div class="mdc-chip-set mdc-chip-set--choice" ref="yourSet">
+            <div class="mdc-chip mdc-chip--selected" disable-mdc-auto-init>
+              <div class="mdc-chip__text">Banana</div>
             </div>
-            <div class="mdc-chip">
-                <div class="mdc-chip__text">Chip content</div>
+            <div class="mdc-chip" disable-mdc-auto-init>
+              <div class="mdc-chip__text">Apple</div>
             </div>
-        </div>
-    </section>
+            <div class="mdc-chip" disable-mdc-auto-init>
+              <div class="mdc-chip__text">Kiwi</div>
+            </div>
+          </div>
 
-    <section>
+          <button class="mdc-button" click.delegate="printChipSetResult()">get selected</button>
 
-        <code-tabs>
-            <template replace-part="tab-view-template">
-                <au-code language="html">
-                    <div class="mdc-chip-set">
-                        <div class="mdc-chip">
-                            <div class="mdc-chip__text">Chip content</div>
-                        </div>
-                    </div>
-                </au-code>
-            </template>
-        </code-tabs>
+          <div>${selectedText}</div>
+        </au-code>
+      </template>
+      <template replace-part="tab-model-template">
+        <au-code language="javascript">
+          import { observable } from 'aurelia-framework';
 
-    </section>
+          export class Chip {
+            @observable selectedText = '';
+          
+            printChipSetResult() {
+              for (let i = 0; i < this.yourSet.MDCChipSet.chips.length; i++) {
+                if (this.yourSet.MDCChipSet.chips[i].isSelected()) {
+                  this.selectedText = `selected chip index is ${i}`;
+                }
+              }
+            }
+          }
+        </au-code>
+      </template>
+    </code-tabs>
+
+  </section>
 
 </template>

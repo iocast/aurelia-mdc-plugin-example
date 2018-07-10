@@ -1,12 +1,12 @@
 import { PLATFORM } from 'aurelia-pal';
 
-exports.routes = [
+export let routes = [
   {
     route: ['', '/'],
     name: 'overview',
     moduleId: PLATFORM.moduleName('./overview'),
     nav: false,
-    title: "overview"
+    title: 'overview'
   },
   {
     route: 'text-field',
